@@ -195,3 +195,17 @@ function confirmNewGame() {
         generateTickets();
     }
 }
+
+// Prevent accidental refresh (F5, Ctrl+R)
+document.addEventListener("keydown", function (event) {
+    if ((event.ctrlKey && event.key === "r") || event.key === "F5") {
+        event.preventDefault();
+        alert("Refresh is disabled to prevent accidental loss of progress!");
+    }
+});
+
+// Warn when closing/reloading the page
+window.addEventListener("beforeunload", function (event) {
+    event.preventDefault();
+    event.returnValue = "Are you sure you want to leave? Your progress will be lost.";
+});
