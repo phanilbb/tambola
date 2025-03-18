@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Ticket Container */
+.ticket-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Individual Ticket */
+.ticket {
+    border: 2px solid #333;
+    padding: 15px;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ticket Table */
+.ticket-table {
+    border-collapse: collapse;
+}
+
+/* Ticket Cells */
+.ticket-table td {
+    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Number Marking */
+.marked {
+    background-color: yellow;
+}
+
+/* Blinking effect for early wins */
+.blinking-green {
+    background-color: green;
+    animation: blink 0.5s ease-in-out 3;
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Full Ticket Checkmark */
+.full-ticket-checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: green;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    animation: fadeOut 2s ease-in-out 2s forwards;
+}
+
+/* Smooth Fade-out for Checkmark */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+/* Button Styling */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Button Active Click Effect */
+button:active {
+    background-color: #004085;
+    transform: scale(0.98);
+}
+
+/* Button Layout */
+input, button {
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+/* Centering the Controls */
+h1, label, input, button {
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Input Field Styling */
+input[type="number"] {
+    width: 50px;
+    padding: 6px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-top: 30px;
+    animation: fadeIn 3s ease-in-out;
+}
