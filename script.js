@@ -56,12 +56,13 @@ function generateTambolaTicket(usedNumbers) {
     let availableNumbers = {};
 
     for (let col = 0; col < 9; col++) {
-        let start = col === 0 ? 1 : col * 10;
-        let end = col === 8 ? 90 : start + 9;
+        let start = col * 10 + (col === 0 ? 1 : 0);     // 1, 10, 20, 30, 40, 50, 60, 70, 80
+        let end = (col + 1) * 10 - (col === 8 ? 0 : 1); // 9, 19, 29, 39, 49, 59, 69, 79, 90
+
         availableNumbers[col] = [];
 
         for (let num = start; num <= end; num++) {
-            if (!usedNumbers.has(num)) { // ✅ Avoid numbers already used in previous tickets
+            if (!usedNumbers.has(num)) { // ✅ Ensure global uniqueness
                 availableNumbers[col].push(num);
             }
         }
@@ -76,7 +77,7 @@ function generateTambolaTicket(usedNumbers) {
         let numIndex = Math.floor(Math.random() * availableNumbers[col].length);
         let num = availableNumbers[col].splice(numIndex, 1)[0];
         ticket[row][col] = num;
-        usedNumbers.add(num); // ✅ Add to global usedNumbers set
+        usedNumbers.add(num); // ✅ Ensure global uniqueness
         rowFilled[row]++;
         numbersPerColumn[col]++;
         totalNumbers++;
@@ -100,6 +101,7 @@ function generateTambolaTicket(usedNumbers) {
 
     return ticket;
 }
+
 
 function getRowWithSpace(rowFilled) {
     let availableRows = [];
